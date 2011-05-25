@@ -11,6 +11,9 @@
 }
 
 .game-team-holder {
-  border: 1px solid red;
+  border-right: 1px solid #BCD3DB;
   float: left;
+}
+.game-team-holder.winner {
+  background: #D0E8D7;
 }

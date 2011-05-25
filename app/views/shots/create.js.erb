@@ -1,0 +1,30 @@
+
+
+var currentPoints = $("#game-team-<%=@shot.game_team_id%> .togo");
+var newPoints = parseInt(currentPoints.html()) - parseInt(<%=@shot.amount%>);
+var gameStartAt = parseInt($("#game-start-at").html());
+
+var newShot = $("<p />").html("<%= @shot.amount %> <span class=\"grey\">("+currentPoints.html()+" - <%=@shot.amount %> = "+newPoints+")</span>");
+$("#game-team-<%=@shot.game_team_id%> .game-team-shots").append(newShot);
+
+if (newPoints === 0){
+  $("#game-team-<%=@shot.game_team_id%>").addClass('winner');
+}
+
+if (Math.abs(parseInt(newPoints)) == parseInt(newPoints) ){
+  currentPoints.html(newPoints);
+}else {
+  if ( Math.abs(parseInt(newPoints)) > gameStartAt ){
+    var diff = Math.abs((parseInt(newPoints))) - gameStartAt
+    console.log('big: '+ diff);
+    currentPoints.html(gameStartAmount - diff);
+
+  }else {
+    var diff = gameStartAt - Math.abs((parseInt(<%=@shot.amount%>)-parseInt(newPoints)));
+    currentPoints.html(diff + parseInt(<%=@shot.amount%>));
+  }
+
+}
+
+
+$("#game-team-<%=@shot.game_team_id%> .shot-amount").attr('value', '');

@@ -13,3 +13,7 @@ jQuery("#game_teams").live 'change', (event) =>
     while jQuery("#teams").find('p').size() > new_team_count
       jQuery("#teams p:last").remove()
 
+jQuery ->
+  jQuery(".game-team-holder").each (count, obj) ->
+    if ($(obj).find('.togo').html() == '0')
+      $(obj).addClass('winner');
