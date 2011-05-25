@@ -1,1 +1,11 @@
-<h1 class="center">Game #<%=@game.id%> between </h1>
+<h1 class="center">Game #<%=@game.id%> between <%= @game.game_teams.map{|e| e.team.name}.join(' and ') %> </h1>
+
+
+<div id="game-holder">
+  <% @game.game_teams.each do |game_team| %>
+    <div class="game-team-holder" style="width: <%=99/@game.teams%>%;">
+      <h2> <%= game_team.team.name %></h2>
+      game team yupe
+    </div>
+  <% end %>
+</div>

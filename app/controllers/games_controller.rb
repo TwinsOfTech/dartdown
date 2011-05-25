@@ -20,7 +20,8 @@ class GamesController < ApplicationController
       @game = Game.new(params[:game])
       if @game.save
         params[:teams].each do |team|
-          Team.first_or_create(:name => team.strip)
+          tteam = Team.first_or_create(:name => team.strip)
+          GameTeam.create(:team_id => tteam.id, :game_id => @game.id)
         end
         redirect_to game_path(@game)
       else

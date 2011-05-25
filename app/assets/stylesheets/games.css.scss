@@ -3,3 +3,14 @@
   They will automatically be included in application.css.
   You can use Sass (SCSS) here: http://sass-lang.com/
 */
+
+
+#game-holder {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.game-team-holder {
+  border: 1px solid red;
+  float: left;
+}

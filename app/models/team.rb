@@ -6,6 +6,6 @@ class Team
   property :created_at, DateTime
   property :updated_at, DateTime
 
-
+  has n, :game_teams
 
 end

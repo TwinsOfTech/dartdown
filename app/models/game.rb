@@ -8,7 +8,8 @@ class Game
   property :created_at, DateTime
   property :updated_at, DateTime
 
-  #has n, :teams
+  has n, :game_teams
+  #has n, :teams, :through => :game_teams
 
 
 end
