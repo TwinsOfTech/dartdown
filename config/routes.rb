@@ -1,5 +1,9 @@
 Dartdown::Application.routes.draw do
   resources :games
+  resources :teams
+  resources :game_teams do
+    resources :shots
+  end
 
   root :to => 'Games#new'
 

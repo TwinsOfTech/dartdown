@@ -9,6 +9,7 @@ class GameTeam
 
   belongs_to :game
   belongs_to :team
+  has n, :shots
 
 
 end

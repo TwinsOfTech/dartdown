@@ -3,9 +3,21 @@
 
 <div id="game-holder">
   <% @game.game_teams.each do |game_team| %>
-    <div class="game-team-holder" style="width: <%=99/@game.teams%>%;">
+    <% points_to_go = @game.start_at %>
+    <div class="game-team-holder" style="width: <%=99/@game.teams%>%;" id="game-team-<%=game_team.id%>">
       <h2> <%= game_team.team.name %></h2>
-      game team yupe
+      <div class="game-team-shots">
+        <% game_team.shots.each do |shot| %>
+          <p>
+          <%= shot.amount %> <span class="grey">(<%=points_to_go%> - <%=shot.amount %> = <%= points_to_go -= shot.amount %>)</span>
+          </p>
+        <% end %>
+      </div>
+      <div class="new-shot-form-holder">
+        <%= form_for Shot.new, :url => new_game_team_shot_path(game_team) do |f| %>
+          <%= f.text_field :amount %> <span class="togo"><%= points_to_go %></span>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

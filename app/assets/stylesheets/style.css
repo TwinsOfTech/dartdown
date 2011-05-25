@@ -88,6 +88,9 @@ h1 {
 .a-middle {
   vertical-align: middle;
 }
+.grey {
+  color: #707070;
+}
 .float-r {
   float: right;
 }
