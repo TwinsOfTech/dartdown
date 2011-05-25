@@ -9,6 +9,9 @@
 <body>
 
   <div id="main">
+    <% [:notice, :error, :success].each do |msg| %>
+      <%= flash[msg] %>
+    <% end %>
     <%= yield %>
   </div>
 
