@@ -1,0 +1,25 @@
+<h1 class="center">New Game</h1>
+
+<%= form_for @game, :action => games_path do |f| %>
+  <div class="row-holder">
+    <%= f.label :start_at, 'Start at' %>
+    <%= f.text_field :start_at %>
+  </div>
+  <div class="row-holder">
+    <p>
+      <%= f.label :teams, 'Teams' %>
+      <%= f.select :teams, (1..9).map{|e| [e,e]} %>
+    </p>
+    <div id="teams">
+      <p class="team">
+        Name: <%= text_field 'teams', '' %>
+      </p>
+      <p class="team">
+        Name: <%= text_field 'teams', '' %>
+      </p>
+    </div>
+  </div>
+  <div class="row-holder">
+    <%= f.submit 'Start Game' %>
+  </div>
+<% end %>
